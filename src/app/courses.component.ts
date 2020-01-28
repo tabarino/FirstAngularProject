@@ -9,10 +9,19 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'courses', // <courses>
-    template: '<h2>{{ "Title: " + title }}</h2><p>{{ getTitle() }}</p>'
+    template: `
+        <h2>{{ "Title: " + title }}</h2>
+        <p>{{ getTitle() }}</p>
+        <ul>
+            <li *ngFor="let course of courses">
+                {{ course }}
+            </li>
+        </ul>
+    `
 })
 export class CoursesComponent {
     title = "List of courses";
+    courses = ["course1", "course2", "course3"];
 
     getTitle() {
         return this.title;
