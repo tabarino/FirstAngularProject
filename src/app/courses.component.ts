@@ -24,13 +24,14 @@ import { CoursesService } from './courses.service';
                 <td [attr.colspan]="colSpan"></td>
             </tr>
         </table>
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary" [class.active]="isActive">Save</button>
     `
 })
 export class CoursesComponent {
     title = "List of courses";
     imageUrl = "https://picsum.photos/600/400";
     colSpan = 2;
+    isActive = true;
     courses;
 
     constructor(service: CoursesService) {
