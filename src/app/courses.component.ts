@@ -11,7 +11,7 @@ import { CoursesService } from './courses.service';
 @Component({
     selector: 'courses', // <courses>
     template: `
-        <div (click)="onDivClicked()">
+        <div>
             <h2>{{ "Title: " + title }}</h2>
             <p>{{ getTitle() }}</p>
             <ul>
@@ -25,7 +25,11 @@ import { CoursesService } from './courses.service';
                     <td [attr.colspan]="colSpan"></td>
                 </tr>
             </table>
-            <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActiveBackground ? 'blue' : 'gray'">Save</button>
+            <input (keyup.enter)="onKeyUp()" />
+
+            <div (click)="onDivClicked()">
+                <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActiveBackground ? 'blue' : 'gray'">Save</button>
+            </div>
         </div>
     `
 })
@@ -55,5 +59,9 @@ export class CoursesComponent {
 
     onDivClicked() {
         alert('Div was clicked');
+    }
+
+    onKeyUp() {
+        console.log('ENTER was pressed');
     }
 }
