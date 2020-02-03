@@ -11,20 +11,22 @@ import { CoursesService } from './courses.service';
 @Component({
     selector: 'courses', // <courses>
     template: `
-        <h2>{{ "Title: " + title }}</h2>
-        <p>{{ getTitle() }}</p>
-        <ul>
-            <li *ngFor="let course of courses">
-                {{ course }}
-            </li>
-        </ul>
-        <img [src]="imageUrl" />
-        <table>
-            <tr>
-                <td [attr.colspan]="colSpan"></td>
-            </tr>
-        </table>
-        <button class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActiveBackground ? 'blue' : 'gray'">Save</button>
+        <div (click)="onDivClicked()">
+            <h2>{{ "Title: " + title }}</h2>
+            <p>{{ getTitle() }}</p>
+            <ul>
+                <li *ngFor="let course of courses">
+                    {{ course }}
+                </li>
+            </ul>
+            <img [src]="imageUrl" />
+            <table>
+                <tr>
+                    <td [attr.colspan]="colSpan"></td>
+                </tr>
+            </table>
+            <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActiveBackground ? 'blue' : 'gray'">Save</button>
+        </div>
     `
 })
 export class CoursesComponent {
@@ -32,7 +34,7 @@ export class CoursesComponent {
     imageUrl = "https://picsum.photos/600/400";
     colSpan = 2;
     isActive = true;
-    isActiveBackground = false;
+    isActiveBackground = true;
     courses;
 
     constructor(service: CoursesService) {
@@ -41,5 +43,17 @@ export class CoursesComponent {
 
     getTitle() {
         return this.title;
+    }
+
+    onSave($event) {
+        // Stop Event Bubbling
+        $event.stopPropagation();
+
+        alert('Saved');
+        console.log($event);
+    }
+
+    onDivClicked() {
+        alert('Div was clicked');
     }
 }
