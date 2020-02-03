@@ -18,10 +18,12 @@ import { CoursesService } from './courses.service';
                 {{ course }}
             </li>
         </ul>
+        <img [src]="imageUrl" />
     `
 })
 export class CoursesComponent {
     title = "List of courses";
+    imageUrl = "https://picsum.photos/600/400";
     courses;
 
     constructor(service: CoursesService) {
