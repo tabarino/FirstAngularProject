@@ -25,7 +25,8 @@ import { CoursesService } from './courses.service';
                     <td [attr.colspan]="colSpan"></td>
                 </tr>
             </table>
-            <input #email (keyup.enter)="onKeyUp(email.value)" />
+
+            <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
 
             <div (click)="onDivClicked()">
                 <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActiveBackground ? 'blue' : 'gray'">Save</button>
@@ -39,6 +40,7 @@ export class CoursesComponent {
     colSpan = 2;
     isActive = true;
     isActiveBackground = true;
+    email = 'me@example.com';
     courses;
 
     constructor(service: CoursesService) {
@@ -61,8 +63,8 @@ export class CoursesComponent {
         alert('Div was clicked');
     }
 
-    onKeyUp(email) {
+    onKeyUp() {
         console.log('ENTER was pressed');
-        console.log(email);
+        console.log(this.email);
     }
 }
