@@ -25,7 +25,7 @@ import { CoursesService } from './courses.service';
                     <td [attr.colspan]="colSpan"></td>
                 </tr>
             </table>
-            <input (keyup.enter)="onKeyUp()" />
+            <input #email (keyup.enter)="onKeyUp(email.value)" />
 
             <div (click)="onDivClicked()">
                 <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActiveBackground ? 'blue' : 'gray'">Save</button>
@@ -61,7 +61,8 @@ export class CoursesComponent {
         alert('Div was clicked');
     }
 
-    onKeyUp() {
+    onKeyUp(email) {
         console.log('ENTER was pressed');
+        console.log(email);
     }
 }
