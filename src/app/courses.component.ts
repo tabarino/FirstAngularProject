@@ -31,7 +31,7 @@ import { CoursesService } from './courses.service';
             <p>{{ course.students | number }}</p>
             <p>{{ course.rating | number:'1.2-2' }}</p>
             <p>{{ course.price | currency:'EUR':true:'3.2-2' }}</p>
-            <p>{{ course.releaseDate| date:'mediumDate' }}</p>
+            <p>{{ course.releaseDate | date:'mediumDate' }}</p>
             
             <br>
 
