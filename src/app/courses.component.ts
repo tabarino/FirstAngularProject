@@ -32,6 +32,11 @@ import { CoursesService } from './courses.service';
             <p>{{ course.rating | number:'1.2-2' }}</p>
             <p>{{ course.price | currency:'EUR':true:'3.2-2' }}</p>
             <p>{{ course.releaseDate| date:'mediumDate' }}</p>
+            
+            <br>
+
+            <p>{{ text | summary:22 }}</p>
+
             <br>
 
             <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
@@ -59,6 +64,7 @@ export class CoursesComponent {
         price: 190.95,
         releaseDate: new Date(2016, 3, 1)
     }
+    text = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi dolorem error provident, impedit debitis autem dolor, fugit similique laudantium facilis harum culpa iure ipsam et, ullam sit obcaecati officia a!';
 
     constructor(service: CoursesService) {
         this.courses = service.getCourses();
