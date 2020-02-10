@@ -1,3 +1,4 @@
+import { Injectable } from "@angular/core";
 /**
  * Create by Tabarino
  * User: itabarino
@@ -5,6 +6,7 @@
  * Time: 22:50
  */
 
+@Injectable()
 export class CoursesService {
     getCourses() {
         return ["course1", "course2", "course3"];
