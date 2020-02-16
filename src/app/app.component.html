@@ -29,5 +29,13 @@
     List of Courses
 </ng-template>
 <ng-template #noCourses>
-    No courses yet.
+    No courses yet
 </ng-template>
+<br>
+<br>
+<div [hidden]="newCoursesHidden.length == 0">
+    List of Courses
+</div>
+<div [hidden]="newCoursesHidden.length > 0">
+    No courses yet
+</div>

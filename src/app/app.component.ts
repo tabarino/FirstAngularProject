@@ -22,6 +22,8 @@ export class AppComponent {
 
   newCourses = [];
 
+  newCoursesHidden = [1, 2];
+
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
     console.log('Favorite Changed: ', eventArgs);
   }
