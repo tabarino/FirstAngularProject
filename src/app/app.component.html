@@ -1,7 +1,11 @@
 <h1>First Angular Project</h1>
 <br>
 <bootstrap-panel>
-    <div class="heading">Heading</div>
+    <!-- With the old div we add the div inside of the div that angular creates -->
+    <!-- In some cases we don't want that, so we can use ng-containet and in this case -->
+    <!-- just the wording Heading will be added there -->
+    <!-- <div class="heading">Heading</div> -->
+    <ng-container class="heading">Heading</ng-container>
     <div class="body">
         <h2>Body</h2>
         <p>Some content here...</p>
