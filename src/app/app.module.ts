@@ -10,6 +10,7 @@ import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TestBoxCasePipe } from './test-box-case.pipe';
 import { PanelComponent } from './panel/panel.component';
+import { LikeComponent } from './like/like.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PanelComponent } from './panel/panel.component';
     SummaryPipe,
     FavoriteComponent,
     TestBoxCasePipe,
-    PanelComponent
+    PanelComponent,
+    LikeComponent
   ],
   imports: [
     BrowserModule,

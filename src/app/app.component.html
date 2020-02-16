@@ -17,6 +17,9 @@
 <favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></favorite>
 <br>
 <br>
+<app-like [likesCount]="tweet.likesCount" [isActive]="tweet.isLiked"></app-like>
+<br>
+<br>
 <input type="text" [(ngModel)]="testBox">
 <br>
 <p>{{ testBox | testBoxCase }}</p>

@@ -1,0 +1,7 @@
+<i class="fa" aria-hidden="true"
+    [class.fa-heart]="isActive"
+    [class.fa-heart-o]="!isActive"
+    (click)="onClick()"
+>
+    <span class="likesCountColor">{{ likesCount }}</span>
+</i>
