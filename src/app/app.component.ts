@@ -35,4 +35,17 @@ export class AppComponent {
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
     console.log('Favorite Changed: ', eventArgs);
   }
+
+  onAdd() {
+    this.ngForCourses.push({ id: 4, name: 'course 4' })
+  }
+
+  onChange(course) {
+    course.name = course.name + ' - Updated';
+  }
+
+  onRemove(course) {
+    let index = this.ngForCourses.indexOf(course);
+    this.ngForCourses.splice(index, 1);
+  }
 }
