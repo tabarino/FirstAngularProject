@@ -28,6 +28,8 @@ export class AppComponent {
 
   ngForCourses;
 
+  canSave = true;
+
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
     console.log('Favorite Changed: ', eventArgs);
   }
