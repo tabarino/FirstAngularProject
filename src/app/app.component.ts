@@ -30,6 +30,11 @@ export class AppComponent {
 
   canSave = true;
 
+  task = {
+    title: 'Review Applications',
+    assignee: null
+  }
+
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
     console.log('Favorite Changed: ', eventArgs);
   }
