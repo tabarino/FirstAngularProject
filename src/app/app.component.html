@@ -50,3 +50,11 @@
     <div *ngSwitchCase="'list'">List View Content</div>
     <div *ngSwitchDefault>Otherwise</div>
 </div>
+<br><br>
+<p>ngForCourses</p>
+<ul>
+    <!-- Search for ngForOf on angular.io to see all options -->
+    <li *ngFor="let course of ngForCourses; index as i; even as isEven">
+        {{ i }} - {{ course.name }} - <span *ngIf="isEven">Even</span>
+    </li>
+</ul>
