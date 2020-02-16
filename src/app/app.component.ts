@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'First Angular Project';
   testBox: string;
+  post = {
+    favoriteTitle: "Title",
+    isFavorite: true
+  };
 }
