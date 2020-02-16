@@ -52,10 +52,11 @@
 </div>
 <br><br>
 <p>ngForCourses</p>
+<button (click)="loadCourses()">Load Courses</button>
 <button (click)="onAdd()">Add</button>
 <ul>
     <!-- Search for ngForOf on angular.io to see all options -->
-    <li *ngFor="let course of ngForCourses; index as i; even as isEven">
+    <li *ngFor="let course of ngForCourses; index as i; even as isEven; trackBy: trackCourse">
         Index: {{ i }} - {{ course.name }} <span *ngIf="isEven">- Even</span>
         <button (click)="onChange(course)">Edit</button>
         <button (click)="onRemove(course)">Remove</button>

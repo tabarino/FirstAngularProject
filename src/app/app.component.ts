@@ -26,14 +26,35 @@ export class AppComponent {
 
   viewMode = 'somethingElse';
 
-  ngForCourses = [
-    { id: 1, name: 'course 1' },
-    { id: 2, name: 'course 2' },
-    { id: 3, name: 'course 3' }
-  ];
+  ngForCourses;
 
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
     console.log('Favorite Changed: ', eventArgs);
+  }
+
+  loadCourses() {
+    this.ngForCourses = [
+      { id: 1, name: 'course 1' },
+      { id: 2, name: 'course 2' },
+      { id: 3, name: 'course 3' }
+    ];
+  }
+
+  /**
+   * This method tells Angular to get the same object in the memory
+   * instead of loading the same object several times 
+   * 
+   * Use this only for Large Lists, for simple lists Angular handles with performance really well
+   * 
+   * @param index 
+   * @param course 
+   */
+  trackCourse(index, course) {
+    if (course) {
+      return course.id;
+    } else {
+      return undefined;
+    }
   }
 
   onAdd() {
