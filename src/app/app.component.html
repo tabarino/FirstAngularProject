@@ -1,7 +1,7 @@
 <h1>First Angular Project</h1>
 <courses></courses>
 <br>
-<favorite [is-favorite]="post.isFavorite"></favorite>
+<favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged()"></favorite>
 <br>
 <br>
 <input type="text" [(ngModel)]="testBox">
