@@ -23,3 +23,11 @@
 <input type="text" [(ngModel)]="testBox">
 <br>
 <p>{{ testBox | testBoxCase }}</p>
+<br>
+<div *ngIf="newCourses.length > 0; then coursesList else noCourses"></div>
+<ng-template #coursesList>
+    List of Courses
+</ng-template>
+<ng-template #noCourses>
+    No courses yet.
+</ng-template>
