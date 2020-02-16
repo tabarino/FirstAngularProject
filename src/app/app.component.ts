@@ -24,6 +24,8 @@ export class AppComponent {
 
   newCoursesHidden = [1, 2];
 
+  viewMode = 'somethingElse';
+
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
     console.log('Favorite Changed: ', eventArgs);
   }
