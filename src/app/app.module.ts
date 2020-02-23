@@ -11,7 +11,9 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { TestBoxCasePipe } from './test-box-case.pipe';
 import { PanelComponent } from './panel/panel.component';
 import { LikeComponent } from './like/like.component';
+import { InputFormatDirective } from './input-format.directive';
 
+// You have to register all Components, Pipes and Directives on NgModule
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,8 @@ import { LikeComponent } from './like/like.component';
     FavoriteComponent,
     TestBoxCasePipe,
     PanelComponent,
-    LikeComponent
+    LikeComponent,
+    InputFormatDirective
   ],
   imports: [
     BrowserModule,
