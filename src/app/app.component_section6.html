@@ -1,0 +1,86 @@
+<h1>First Angular Project</h1>
+<br>
+
+<!-- Rename this html to app.component.html to put it back to work -->
+<!-- Also need to rename app.component_section6.ts to app.component.ts -->
+
+<bootstrap-panel>
+    <!-- With the old div we add the div inside of the div that angular creates -->
+    <!-- In some cases we don't want that, so we can use ng-containet and in this case -->
+    <!-- just the wording Heading will be added there -->
+    <!-- <div class="heading">Heading</div> -->
+    <ng-container class="heading">Heading</ng-container>
+    <div class="body">
+        <h2>Body</h2>
+        <p>Some content here...</p>
+    </div>
+</bootstrap-panel>
+<br>
+<courses></courses>
+<br>
+<favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></favorite>
+<br><br>
+<app-like [likesCount]="tweet.likesCount" [isActive]="tweet.isLiked"></app-like>
+<br><br>
+<input type="text" [(ngModel)]="testBox">
+<br>
+<p>{{ testBox | testBoxCase }}</p>
+<br>
+<div *ngIf="newCourses.length > 0; then coursesList else noCourses"></div>
+<ng-template #coursesList>
+    List of Courses
+</ng-template>
+<ng-template #noCourses>
+    No courses yet
+</ng-template>
+<br><br>
+<div [hidden]="newCoursesHidden.length == 0">
+    List of Courses
+</div>
+<div [hidden]="newCoursesHidden.length > 0">
+    No courses yet
+</div>
+<br><br>
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="viewMode == 'map'" (click)="viewMode = 'map'">Map View</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="viewMode == 'list'" (click)="viewMode = 'list'">List View</a>
+    </li>
+</ul>
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'">Map View Content</div>
+    <div *ngSwitchCase="'list'">List View Content</div>
+    <div *ngSwitchDefault>Otherwise</div>
+</div>
+<br><br>
+<p>ngForCourses</p>
+<button (click)="loadCourses()">Load Courses</button>
+<button (click)="onAdd()">Add</button>
+<ul>
+    <!-- Search for ngForOf on angular.io to see all options -->
+    <li *ngFor="let course of ngForCourses; index as i; even as isEven; trackBy: trackCourse">
+        Index: {{ i }} - {{ course.name }} <span *ngIf="isEven">- Even</span>
+        <button (click)="onChange(course)">Edit</button>
+        <button (click)="onRemove(course)">Remove</button>
+    </li>
+</ul>
+<br><br>
+<button
+    [ngStyle]="{
+        'backgroundColor': canSave ? 'blue' : 'gray',
+        'color': canSave ? 'white' : 'black',
+        'fontWeight': canSave ? 'bold' : 'normal'
+    }"
+>Save</button>
+<br><br>
+<span>{{ task.assignee?.name }}</span>
+<br>
+<input type="text" [appInputFormat]="'uppercase'">
+<br><br>
+<zippy title="Shipping Details">
+    Shipping Details Content
+</zippy>
+<br>
+<contact-form></contact-form>
