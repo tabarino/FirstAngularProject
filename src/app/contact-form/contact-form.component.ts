@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'contact-form',
@@ -12,4 +13,7 @@ export class ContactFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(contactForm: NgForm) {
+    console.log(contactForm);
+  }
 }
