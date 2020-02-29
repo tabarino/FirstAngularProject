@@ -40,7 +40,17 @@
           <option value=""></option>
           <option *ngFor="let method of contactMethods" [ngValue]="method">{{ method.name }}</option>
         </select>
-      </div>
+    </div>
+    <div *ngFor="let method of contactMethods" class="form-check">
+        <label class="form-check-label">
+            <input 
+                ngModel type="radio" 
+                class="form-check-input" name="radioContactMethod" id="radioContactMethod"
+                [value]="method.id" checked
+            >{{ method.name }}
+        </label>
+    </div>
+    <br>
     <div class="form-check">
         <label class="form-check-label">
           <input 
