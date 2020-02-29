@@ -7,6 +7,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
+  contactMethods = [
+    { id: 1, name: 'Email' },
+    { id: 2, name: 'Mobile' },
+    { id: 3, name: 'Phone Home' }
+  ];
 
   constructor() { }
 

@@ -27,15 +27,30 @@
         <label for="comment">Comment</label>
         <textarea ngModel class="form-control" id="comment" name="comment" cols="30" rows="10"></textarea>
     </div>
-    <div class="form-check">
-      <label class="form-check-label">
-        <input 
-            ngModel type="checkbox" 
-            class="form-check-input" name="isSubscribed" id="isSubscribed"
-            value="checkedValue" checked
-        >Display value
-      </label>
+    <div class="form-group">
+      <label for="contactMethod">Contact Method</label>
+      <select ngModel class="custom-select" name="contactMethod" id="contactMethod">
+        <option value=""></option>
+        <option *ngFor="let method of contactMethods" [ngValue]="method">{{ method.name }}</option>
+      </select>
     </div>
+    <div class="form-group">
+        <label for="multipleContactMethod">Multiple Contact Method</label>
+        <select multiple ngModel class="custom-select" name="multipleContactMethod" id="multipleContactMethod">
+          <option value=""></option>
+          <option *ngFor="let method of contactMethods" [ngValue]="method">{{ method.name }}</option>
+        </select>
+      </div>
+    <div class="form-check">
+        <label class="form-check-label">
+          <input 
+              ngModel type="checkbox" 
+              class="form-check-input" name="isSubscribed" id="isSubscribed"
+              value="checkedValue" checked
+          >Display value
+        </label>
+    </div>
+    <br>
     <p>{{ contactForm.value | json }}</p>
     <br>
     <button class="btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
