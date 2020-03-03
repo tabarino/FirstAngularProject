@@ -9,12 +9,14 @@ import { UsernameValidators } from '../common/validators/username.validator';
 })
 export class SignupFormComponent implements OnInit {
   signUpForm = new FormGroup({
-    username: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3),
-      UsernameValidators.cannotContainSpace
-    ], UsernameValidators.shouldBeUnique),
-    password: new FormControl('', Validators.required)
+    account: new FormGroup({
+      username: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        UsernameValidators.cannotContainSpace
+      ], UsernameValidators.shouldBeUnique),
+      password: new FormControl('', Validators.required)
+    })
   });
 
   constructor() { }
@@ -23,7 +25,7 @@ export class SignupFormComponent implements OnInit {
   }
 
   get username() {
-    return this.signUpForm.get('username');
+    return this.signUpForm.get('account.username');
   }
 
   login() {

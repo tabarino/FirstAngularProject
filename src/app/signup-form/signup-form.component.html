@@ -2,28 +2,30 @@
     <div *ngIf="signUpForm.errors" class="alert alert-danger" role="alert">
         The username or password is invalid.
     </div>
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input formControlName="username" type="text" class="form-control" name="username" id="username">
-      <div *ngIf="username.pending">Checking name</div>
-      <div *ngIf="username.touched && username.invalid" class="alert alert-danger" role="alert">
-          <div *ngIf="username.errors.required">
-              Username is Required.
-          </div>
-          <div *ngIf="username.errors.minlength">
-              Username should be minimum {{ username.errors.minlength.requiredLength }} characters.
-          </div>
-          <div *ngIf="username.errors.cannotContainSpace">
-            Username cannot contain space.
-          </div>
-          <div *ngIf="username.errors.shouldBeUnique">
-            Username is already taken.
-          </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input formControlName="password" type="password" class="form-control" name="password" id="password">
+    <div formGroupName="account">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input formControlName="username" type="text" class="form-control" name="username" id="username">
+            <div *ngIf="username.pending">Checking name</div>
+            <div *ngIf="username.touched && username.invalid" class="alert alert-danger" role="alert">
+                <div *ngIf="username.errors.required">
+                    Username is Required.
+                </div>
+                <div *ngIf="username.errors.minlength">
+                    Username should be minimum {{ username.errors.minlength.requiredLength }} characters.
+                </div>
+                <div *ngIf="username.errors.cannotContainSpace">
+                  Username cannot contain space.
+                </div>
+                <div *ngIf="username.errors.shouldBeUnique">
+                  Username is already taken.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input formControlName="password" type="password" class="form-control" name="password" id="password">
+        </div>
     </div>
     <button type="submit" class="btn btn-primary">Sign Up</button>
 </form>
