@@ -25,4 +25,10 @@ export class SignupFormComponent implements OnInit {
   get username() {
     return this.signUpForm.get('username');
   }
+
+  login() {
+    this.signUpForm.setErrors({
+      invalidLogin: true
+    })
+  }
 }
