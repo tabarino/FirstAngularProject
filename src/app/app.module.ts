@@ -16,6 +16,7 @@ import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { NewCourseForm2Component } from './new-course-form2/new-course-form2.component';
 
 // You have to register all Components, Pipes and Directives on NgModule
 @NgModule({
@@ -32,7 +33,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     ZippyComponent,
     ContactFormComponent,
     NewCourseFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    NewCourseForm2Component
   ],
   imports: [
     BrowserModule,
