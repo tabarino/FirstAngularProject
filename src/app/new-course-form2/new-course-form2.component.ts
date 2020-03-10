@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormArray, FormControl } from '@angular/forms';
+import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'new-course-form2',
@@ -7,11 +7,18 @@ import { FormGroup, FormArray, FormControl } from '@angular/forms';
   styleUrls: ['./new-course-form2.component.css']
 })
 export class NewCourseForm2Component implements OnInit {
-  newCourseForm2 = new FormGroup({
-    topics: new FormArray([])
-  });
+  newCourseForm2: FormGroup;
 
-  constructor() { }
+  constructor(fb: FormBuilder) {
+    this.newCourseForm2 = fb.group({
+      name: ['', Validators.required],
+      contact: fb.group({
+        email: [],
+        phone: []
+      }),
+      topics: fb.array([])
+    });
+  }
 
   ngOnInit(): void {
   }
