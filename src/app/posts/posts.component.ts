@@ -28,4 +28,17 @@ export class PostsComponent implements OnInit {
       this.posts.splice(0, 0, post);
     });
   }
+
+  updatePost(post) {
+    // PUT Example
+    // post.isRead = true;
+    // this.http.put(this.url + '/' + post.id, post).subscribe(response => {
+    //   console.log(response);
+    // });
+
+    // Patch Example
+    this.http.patch(this.url + '/' + post.id, { isRead: true }).subscribe(response => {
+      console.log(response);
+    });
+  }
 }
