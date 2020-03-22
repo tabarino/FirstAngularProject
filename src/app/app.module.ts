@@ -20,6 +20,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { NewCourseForm2Component } from './new-course-form2/new-course-form2.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostService } from './services/post.service';
 
 // You have to register all Components, Pipes and Directives on NgModule
 @NgModule({
@@ -48,7 +49,8 @@ import { PostsComponent } from './posts/posts.component';
     HttpClientModule
   ],
   providers: [
-    CoursesService
+    CoursesService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })
