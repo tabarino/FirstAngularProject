@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
-import { AppError } from '../common/handleErrors/app-error';
-import { NotFoundError } from '../common/handleErrors/not-found-error';
-import { BadInput } from '../common/handleErrors/bad-input';
+import { AppError } from '../common/errorHandler/app-error';
+import { NotFoundError } from '../common/errorHandler/not-found-error';
+import { BadInput } from '../common/errorHandler/bad-input';
 
 @Component({
   selector: 'app-posts',
@@ -18,10 +18,6 @@ export class PostsComponent implements OnInit {
     this.postService.getPosts().subscribe(
       response => {
         this.posts = response;
-      },
-      error => {
-        alert('An unexpected error occurred');
-        console.log(error);
       }
     );
   }
@@ -35,13 +31,12 @@ export class PostsComponent implements OnInit {
         post.id = response['id'];
         this.posts.splice(0, 0, post);
       },
-      (error: Response) => {
+      (error: AppError) => {
         if (error instanceof BadInput) {
           alert(error.originalError);
           // this.form.setErrors(error.originalError);
         } else {
-          alert('An unexpected error occurred');
-          console.log(error);
+          throw error;
         }
       }
     );
@@ -51,16 +46,12 @@ export class PostsComponent implements OnInit {
     this.postService.updatePost(post).subscribe(
       response => {
         console.log(response);
-      },
-      error => {
-        alert('An unexpected error occurred');
-        console.log(error);
       }
     );
   }
 
   deletePost(post) {
-    this.postService.deletePost('').subscribe(
+    this.postService.deletePost(post.id).subscribe(
       response => {
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
@@ -69,8 +60,7 @@ export class PostsComponent implements OnInit {
         if (error instanceof NotFoundError) {
           alert('This post has already been deleted');
         } else {
-          alert('An unexpected error occurred');
-          console.log(error);
+          throw error;
         }
       }
     );
