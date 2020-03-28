@@ -4,6 +4,7 @@ import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AppError } from '../common/handleErrors/app-error';
 import { NotFoundError } from '../common/handleErrors/not-found-error';
+import { BadInput } from '../common/handleErrors/bad-input';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,14 @@ export class PostService {
   }
 
   createPost(post) {
-    return this.http.post(this.url, post);
+    return this.http.post(this.url, post).pipe(
+      catchError((error: Response) => {
+        if (error.status === 400) {
+          return throwError(new BadInput(error));
+        }
+        return throwError(new AppError(error));
+      })
+    );
   }
 
   updatePost(post) {
