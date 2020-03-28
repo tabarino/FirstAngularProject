@@ -21,7 +21,7 @@ import { NewCourseForm2Component } from './new-course-form2/new-course-form2.com
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
-import { AppErrorHandler } from './common/errorHandler/app.error-handler';
+import { AppErrorHandler } from './common/handlerErrors/app.error-handler';
 
 // You have to register all Components, Pipes and Directives on NgModule
 @NgModule({
