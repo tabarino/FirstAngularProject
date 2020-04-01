@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
@@ -24,6 +25,10 @@ import { PostService } from './services/post.service';
 import { AppErrorHandler } from './common/handlerErrors/app.error-handler';
 import { GithubFollowersComponent } from './github-followers/github-followers.component';
 import { GithubFollowersService } from './services/github-followers.service';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 // You have to register all Components, Pipes and Directives on NgModule
 @NgModule({
@@ -44,13 +49,24 @@ import { GithubFollowersService } from './services/github-followers.service';
     NewCourseForm2Component,
     ChangePasswordComponent,
     PostsComponent,
-    GithubFollowersComponent
+    GithubFollowersComponent,
+    GithubProfileComponent,
+    HomeComponent,
+    NavbarComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent },
+      { path: 'followers/:username', component: GithubProfileComponent },
+      { path: 'followers', component: GithubFollowersComponent },
+      { path: 'posts', component: PostsComponent },
+      { path: '**', component: NotFoundComponent }
+    ])
   ],
   providers: [
     CoursesService,
