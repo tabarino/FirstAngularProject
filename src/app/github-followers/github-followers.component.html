@@ -1,8 +1,8 @@
-<div *ngFor="let follower of followers" class="media">
+<div *ngFor="let follower of followers" class="media" style="padding: 10px;">
     <a class="d-flex" href="#">
         <img class="avatar" src="{{ follower.avatar_url }}" alt="Avatar">
     </a>
-    <div class="media-body">
+    <div class="media-body" style="padding: 10px;">
         <h5>{{ follower.login }}</h5>
         <a href="{{ follower.html_url }}">{{ follower.html_url }}</a>
     </div>
