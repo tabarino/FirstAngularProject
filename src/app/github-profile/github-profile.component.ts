@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-github-profile',
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GithubProfileComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     // The Snapshot only get the params once, if it changes in the page it won't get again
@@ -24,4 +24,9 @@ export class GithubProfileComponent implements OnInit {
     });
   }
 
+  submit() {
+    this.router.navigate(['/followers'], {
+      queryParams: { page: 1, order: 'newest' }
+    });
+  }
 }
