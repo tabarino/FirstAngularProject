@@ -3,3 +3,7 @@
     height: 80px;
     border-radius: 100%;
 }
+
+.media, .media-body {
+    padding: 10px;
+}
