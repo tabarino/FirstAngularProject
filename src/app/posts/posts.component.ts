@@ -10,7 +10,7 @@ import { BadInput } from '../common/handlerErrors/bad-input';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  posts;
+  posts: any;
 
   constructor(private postService: PostService) { }
 

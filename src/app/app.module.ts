@@ -29,6 +29,7 @@ import { GithubProfileComponent } from './github-profile/github-profile.componen
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ArchiveComponent } from './archive/archive.component';
 
 // You have to register all Components, Pipes and Directives on NgModule
 @NgModule({
@@ -53,7 +54,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     GithubProfileComponent,
     HomeComponent,
     NavbarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
+      { path: 'archive/:year/:month', component: ArchiveComponent },
       { path: 'followers/:username/:id', component: GithubProfileComponent },
       { path: 'followers', component: GithubFollowersComponent },
       { path: 'posts', component: PostsComponent },
