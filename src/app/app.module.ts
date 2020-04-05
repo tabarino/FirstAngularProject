@@ -30,6 +30,12 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './services/auth.service';
+import { AdminComponent } from './admin/admin.component';
+import { NoAccessComponent } from './no-access/no-access.component';
+import { OrderService } from './services/order.service';
+import { fakeBackendProvider } from './helpers/fake-backend';
 
 // You have to register all Components, Pipes and Directives on NgModule
 @NgModule({
@@ -55,7 +61,10 @@ import { ArchiveComponent } from './archive/archive.component';
     HomeComponent,
     NavbarComponent,
     NotFoundComponent,
-    ArchiveComponent
+    ArchiveComponent,
+    LoginComponent,
+    AdminComponent,
+    NoAccessComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +73,9 @@ import { ArchiveComponent } from './archive/archive.component';
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
+      { path: 'admin', component: AdminComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'no-access', component: NoAccessComponent },
       { path: 'archive/:year/:month', component: ArchiveComponent },
       { path: 'followers/:username/:id', component: GithubProfileComponent },
       { path: 'followers', component: GithubFollowersComponent },
@@ -72,10 +84,14 @@ import { ArchiveComponent } from './archive/archive.component';
     ])
   ],
   providers: [
+    AuthService,
+    OrderService,
     CoursesService,
     PostService,
     GithubFollowersService,
-    { provide: ErrorHandler, useClass: AppErrorHandler }
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+    // For creating a mock back-end. You don't need these in a real app.
+    fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

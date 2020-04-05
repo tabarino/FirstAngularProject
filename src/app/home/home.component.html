@@ -1,4 +1,12 @@
 <h1>Home Page</h1>
+<p>Welcome [NAME]</p>
+<ul>
+    <li><a routerLink="/admin">Admin</a></li>
+    <li><a routerLink="/login">Login</a></li>
+    <li><a>Logout</a></li>
+</ul>
+<br>
+<p>Archive Data</p>
 <ul>
     <li *ngFor="let archive of archives">
         <a [routerLink]="['/archive', archive.year, archive.month]" >
