@@ -51,15 +51,17 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         // helper functions
 
         function ok(body?) {
-            return of(new HttpResponse({ status: 200, body }))
+            return of(new HttpResponse({ status: 200, body: body }))
         }
 
         function error(message) {
-            return throwError({ error: { message } });
+            return of(new HttpResponse({ status: 400 }));
+            // return throwError({ error: { message: message } });
         }
 
         function unauthorized() {
-            return throwError({ status: 401, error: { message: 'Unauthorised' } });
+            return of(new HttpResponse({ status: 401 }));
+            // return throwError({ status: 401, error: { message: 'Unauthorised' } });
         }
     }
 }
