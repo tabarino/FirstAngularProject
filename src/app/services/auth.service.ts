@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { JwtHelperService } from '@auth0/angular-jwt'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
   login(credentials) {
     return this.http.post('/api/authenticate', credentials).pipe(
@@ -25,6 +27,6 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    return false;
+    return !this.jwtHelper.isTokenExpired();
   }
 }
