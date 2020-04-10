@@ -38,6 +38,7 @@ import { NoAccessComponent } from './no-access/no-access.component';
 import { OrderService } from './services/order.service';
 import { fakeBackendProvider } from './helpers/fake-backend';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
+import { AdminAuthGuardService as AdminAuthGuard } from './services/admin-auth-guard.service';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -79,7 +80,7 @@ export function tokenGetter() {
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+      { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
       { path: 'login', component: LoginComponent },
       { path: 'no-access', component: NoAccessComponent },
       { path: 'archive/:year/:month', component: ArchiveComponent },
@@ -99,6 +100,7 @@ export function tokenGetter() {
   providers: [
     AuthService,
     AuthGuard,
+    AdminAuthGuard,
     OrderService,
     CoursesService,
     PostService,
