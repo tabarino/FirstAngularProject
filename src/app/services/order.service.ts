@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -9,7 +9,14 @@ export class OrderService {
   constructor(private http: HttpClient) { }
 
   getOrders() {
-    return this.http.get('/api/orders').pipe(
+    // This is just an example how to append options in the http header
+    // It's not necessary in this case, because
+    // JwtModule implements Authorization: Bearer by default OOTB
+    let headers = new HttpHeaders();
+    let token = localStorage.getItem('token');
+    headers.append('Authorization', 'Bearer ' + token);
+
+    return this.http.get('/api/orders', { headers: headers }).pipe(
       map(response => response)
     )
   }
