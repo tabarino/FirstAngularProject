@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
@@ -39,6 +41,7 @@ import { OrderService } from './services/order.service';
 import { fakeBackendProvider } from './helpers/fake-backend';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 import { AdminAuthGuardService as AdminAuthGuard } from './services/admin-auth-guard.service';
+import { environment } from 'src/environments/environment';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -74,6 +77,8 @@ export function tokenGetter() {
     NoAccessComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
