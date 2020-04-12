@@ -13,8 +13,8 @@ export class AuthService {
   login(credentials) {
     return this.http.post('/api/authenticate', credentials).pipe(
       map(response => {
-        if (response && response.token) {
-          localStorage.setItem('token', response.token);
+        if (response && response['token']) {
+          localStorage.setItem('token', response['token']);
           return true;
         }
         return false;
