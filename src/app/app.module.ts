@@ -3,7 +3,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { JwtModule } from "@auth0/angular-jwt";
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
@@ -91,9 +91,9 @@ export function tokenGetter() {
     ]),
     JwtModule.forRoot({
       config: {
-        tokenGetter: tokenGetter,
-        whitelistedDomains: ["example.com"],
-        blacklistedRoutes: ["example.com/examplebadroute/"]
+        tokenGetter,
+        whitelistedDomains: ['example.com'],
+        blacklistedRoutes: ['example.com/examplebadroute/']
       }
     })
   ],

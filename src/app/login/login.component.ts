@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   signIn(credentials) {
     this.authService.login(credentials).subscribe(result => {
       if (result) {
-        let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+        const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
         this.router.navigate([returnUrl || '/']);
       } else {
         this.invalidLogin = true;

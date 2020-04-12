@@ -13,7 +13,7 @@ export class ArchiveComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let params = this.route.snapshot.paramMap;
+    const params = this.route.snapshot.paramMap;
     this.year = +params.get('year');
     this.month = +params.get('month');
   }

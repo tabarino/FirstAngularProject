@@ -21,14 +21,14 @@ export class PostsComponent implements OnInit {
   }
 
   createPost(input: HTMLInputElement) {
-    let post: any = { title: input.value };
+    const post: any = { title: input.value };
     this.posts.splice(0, 0, post);
 
     input.value = '';
-    
+
     this.postService.create(post).subscribe(
       newPost => {
-        post.id = newPost['id'];
+        post.id = newPost.id;
       },
       (error: AppError) => {
         this.posts.splice(0, 1);
@@ -50,7 +50,7 @@ export class PostsComponent implements OnInit {
   }
 
   deletePost(post) {
-    let index = this.posts.indexOf(post);
+    const index = this.posts.indexOf(post);
     this.posts.splice(index, 1);
 
     this.postService.delete(post.id).subscribe(

@@ -31,6 +31,6 @@ export class SignupFormComponent implements OnInit {
   login() {
     this.signUpForm.setErrors({
       invalidLogin: true
-    })
+    });
   }
 }

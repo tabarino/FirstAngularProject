@@ -33,7 +33,7 @@ export class NewCourseForm2Component implements OnInit {
   }
 
   removeTopic(topic: FormControl) {
-    let index = this.topics.controls.indexOf(topic);
+    const index = this.topics.controls.indexOf(topic);
     this.topics.removeAt(index);
   }
 }

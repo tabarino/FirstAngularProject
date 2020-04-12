@@ -32,7 +32,7 @@ import { CoursesService } from './courses.service';
             <p>{{ course.rating | number:'1.2-2' }}</p>
             <p>{{ course.price | currency:'EUR':true:'3.2-2' }}</p>
             <p>{{ course.releaseDate | date:'mediumDate' }}</p>
-            
+
             <br>
 
             <p>{{ text | summary:22 }}</p>
@@ -50,20 +50,20 @@ import { CoursesService } from './courses.service';
     `
 })
 export class CoursesComponent {
-    title = "List of courses";
-    imageUrl = "https://picsum.photos/600/400";
+    title = 'List of courses';
+    imageUrl = 'https://picsum.photos/600/400';
     colSpan = 2;
     isActive = true;
     isActiveBackground = true;
     email = 'me@example.com';
     courses;
     course = {
-        title: "The Complete Angular Course",
+        title: 'The Complete Angular Course',
         rating: 4.9745,
         students: 30123,
         price: 190.95,
         releaseDate: new Date(2016, 3, 1)
-    }
+    };
     text = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi dolorem error provident, impedit debitis autem dolor, fugit similique laudantium facilis harum culpa iure ipsam et, ullam sit obcaecati officia a!';
 
     constructor(service: CoursesService) {

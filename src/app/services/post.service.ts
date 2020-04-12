@@ -7,7 +7,7 @@ import { DataService } from './data.service';
 })
 export class PostService extends DataService {
   constructor(http: HttpClient) {
-    let url = 'https://jsonplaceholder.typicode.com/posts';
+    const url = 'https://jsonplaceholder.typicode.com/posts';
     super(url, http);
   }
 }

@@ -27,7 +27,7 @@ export class GithubFollowersComponent implements OnInit {
         // let id = combined[0].get('id');
         // console.log(id);
 
-        let page = combined[1].get('page');
+        const page = combined[1].get('page');
         console.log(page);
 
         // Real world example using id and page

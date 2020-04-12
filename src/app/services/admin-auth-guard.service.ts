@@ -13,7 +13,7 @@ export class AdminAuthGuardService implements CanActivate {
   ) { }
 
   canActivate() {
-    let user = this.authService.currentUser;
+    const user = this.authService.currentUser;
     if (user && user.admin) {
       return true;
     }

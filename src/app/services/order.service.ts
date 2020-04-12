@@ -12,12 +12,12 @@ export class OrderService {
     // This is just an example how to append options in the http header
     // It's not necessary in this case, because
     // JwtModule implements Authorization: Bearer by default OOTB
-    let headers = new HttpHeaders();
-    let token = localStorage.getItem('token');
+    const headers = new HttpHeaders();
+    const token = localStorage.getItem('token');
     headers.append('Authorization', 'Bearer ' + token);
 
-    return this.http.get('/api/orders', { headers: headers }).pipe(
+    return this.http.get('/api/orders', { headers }).pipe(
       map(response => response)
-    )
+    );
   }
 }

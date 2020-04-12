@@ -9,7 +9,7 @@ export class SummaryPipe implements PipeTransform {
             return null;
         }
 
-        let actualLimit = (limit) ? limit : 50;
+        const actualLimit = (limit) ? limit : 50;
 
         return value.substr(0, actualLimit) + '...';
     }

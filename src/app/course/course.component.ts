@@ -9,7 +9,7 @@ export class CourseComponent implements OnInit {
 
   // To create this component automatically, execute the following command:
   // % ng g c course
-  
+
   constructor() { }
 
   ngOnInit() {

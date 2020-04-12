@@ -12,7 +12,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         // let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikl2YW4gVGFiYXJpbm8iLCJhZG1pbiI6ZmFsc2V9.ObFXq3rK0xVE-W7cEUtFEhdNmK0Bicx5XunQ_ovYwSk';
 
         // Ivan Tabarino - Admin = true
-        let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikl2YW4gVGFiYXJpbm8iLCJhZG1pbiI6dHJ1ZX0.tPlifM8nvlbVlCQwbrz8kM_DUAGuzRQwI-G4iVcQubY';
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikl2YW4gVGFiYXJpbm8iLCJhZG1pbiI6dHJ1ZX0.tPlifM8nvlbVlCQwbrz8kM_DUAGuzRQwI-G4iVcQubY';
 
         // wrap in delayed observable to simulate server api call
         return of(null)
@@ -26,11 +26,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 case url.endsWith('/api/authenticate') && method === 'POST':
                     return authenticate();
                 case url.endsWith('/api/orders') && method === 'GET':
-                    return orders();                
+                    return orders();
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
-            }    
+            }
         }
 
         // route functions
@@ -38,7 +38,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             const { email, password } = body;
 
             if (email === 'ivan@domain.com' && password === 'admin') {
-                return ok({ token: token });
+                return ok({ token });
             } else {
                 return error('Username or password is incorrect');
             }
@@ -54,7 +54,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         // helper functions
         function ok(body?) {
-            return of(new HttpResponse({ status: 200, body: body }))
+            return of(new HttpResponse({ status: 200, body }));
         }
 
         function error(message) {
