@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
@@ -77,8 +78,9 @@ export function tokenGetter() {
     NoAccessComponent
   ],
   imports: [
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -91,6 +93,7 @@ export function tokenGetter() {
       { path: 'archive/:year/:month', component: ArchiveComponent },
       { path: 'followers/:username/:id', component: GithubProfileComponent },
       { path: 'followers', component: GithubFollowersComponent },
+      { path: 'courses', component: CourseComponent },
       { path: 'posts', component: PostsComponent },
       { path: '**', component: NotFoundComponent }
     ]),
