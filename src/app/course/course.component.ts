@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AngularFirestore} from "@angular/fire/firestore";
-import {Subscription} from "rxjs";
 
 @Component({
     selector: 'app-course',
@@ -8,21 +7,14 @@ import {Subscription} from "rxjs";
     styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit, OnDestroy {
-    courses: any[];
-    subscription: Subscription;
+    courses$;
 
     constructor(private db: AngularFirestore) { }
 
     ngOnInit(): void {
-        this.subscription = this.db.collection('courses').valueChanges().subscribe(
-            val => {
-                this.courses = val;
-                console.log(this.courses);
-            }
-        );
+        this.courses$ = this.db.collection('courses').valueChanges();
     }
 
     ngOnDestroy(): void {
-        this.subscription.unsubscribe();
     }
 }
