@@ -21,4 +21,16 @@ export class CourseComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
     }
+
+    add(course: HTMLInputElement) {
+        this.db.collection('courses').add({
+            name: course.value
+        })
+        .then(function(docRef) {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
+        });
+    }
 }

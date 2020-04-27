@@ -1,3 +1,5 @@
+<label for="new-course">New Course:</label>
+<input type="text" id="new-course" name="new-course" (keyup.enter)="add(course)" #course>
 <ul>
     <li *ngFor="let course of courses$ | async">
         {{ course.name }}
