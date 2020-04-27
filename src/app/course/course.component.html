@@ -3,3 +3,9 @@
         {{ course.name }}
     </li>
 </ul>
+<p>
+    {{ course$ | async | json }}
+</p>
+<p>
+    {{ authors$ | async | json }}
+</p>
