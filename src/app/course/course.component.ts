@@ -14,12 +14,9 @@ export class CourseComponent implements OnInit, OnDestroy {
     constructor(private db: AngularFirestore) { }
 
     ngOnInit(): void {
-        this.courses$ = this.db.collection('courses').valueChanges();
+        this.courses$ = this.db.collection('courses').valueChanges({ idField: 'id' });
         this.course$ = this.db.doc('courses/WFVo5FTYneWySO5FgKDP').valueChanges();
         this.author$ = this.db.doc('authors/4eMceyeoifDHGONOELsU').valueChanges();
-    }
-
-    ngOnDestroy(): void {
     }
 
     add(course: HTMLInputElement) {
@@ -32,5 +29,20 @@ export class CourseComponent implements OnInit, OnDestroy {
         .catch(function(error) {
             console.error("Error adding document: ", error);
         });
+    }
+
+    update(course) {
+        this.db.doc(`courses/${course.id}`).update({
+            name: course.name + ' UPDATED'
+        })
+        .then(function() {
+            console.log("Document updated");
+        })
+        .catch(function(error) {
+            console.error("Error updating document: ", error);
+        });
+    }
+
+    ngOnDestroy(): void {
     }
 }
