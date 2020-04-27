@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AngularFirestore} from "@angular/fire/firestore";
 
 @Component({
@@ -6,7 +6,7 @@ import {AngularFirestore} from "@angular/fire/firestore";
     templateUrl: './course.component.html',
     styleUrls: ['./course.component.css']
 })
-export class CourseComponent implements OnInit, OnDestroy {
+export class CourseComponent implements OnInit {
     courses$;
     course$;
     author$;
@@ -22,11 +22,9 @@ export class CourseComponent implements OnInit, OnDestroy {
     add(course: HTMLInputElement) {
         this.db.collection('courses').add({
             name: course.value
-        })
-        .then(function(docRef) {
+        }).then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
-        })
-        .catch(function(error) {
+        }).catch(function(error) {
             console.error("Error adding document: ", error);
         });
     }
@@ -34,15 +32,18 @@ export class CourseComponent implements OnInit, OnDestroy {
     update(course) {
         this.db.doc(`courses/${course.id}`).update({
             name: course.name + ' UPDATED'
-        })
-        .then(function() {
+        }).then(function() {
             console.log("Document updated");
-        })
-        .catch(function(error) {
+        }).catch(function(error) {
             console.error("Error updating document: ", error);
         });
     }
 
-    ngOnDestroy(): void {
+    delete(course) {
+        this.db.doc(`courses/${course.id}`).delete().then(function() {
+            console.log("Document deleted");
+        }).catch(function(error) {
+            console.error("Error deleting document: ", error);
+        });
     }
 }
