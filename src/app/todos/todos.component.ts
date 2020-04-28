@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {bounceOutLeftAnimation, fadeInAnimation} from "../animations";
-import {animate, query, style, transition, trigger, useAnimation} from "@angular/animations";
+import {animate, animateChild, query, style, transition, trigger, useAnimation} from "@angular/animations";
 
 @Component({
     selector: 'todos',
@@ -11,8 +11,9 @@ import {animate, query, style, transition, trigger, useAnimation} from "@angular
             transition(':enter', [
                 query('h1', [
                     style({transform: 'translateY(-20px)'}),
-                    animate(1000)
-                ])
+                    animate(500)
+                ]),
+                query('@todoAnimation', animateChild())
             ])
         ]),
         trigger('todoAnimation', [
@@ -23,7 +24,7 @@ import {animate, query, style, transition, trigger, useAnimation} from "@angular
             })),
             transition(':leave', [
                 style({backgroundColor: 'red'}),
-                animate(1000),
+                animate(500),
                 useAnimation(bounceOutLeftAnimation)
             ])
         ])
