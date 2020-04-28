@@ -1,18 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {animate, state, style, transition, trigger} from "@angular/animations";
+import {fade} from "../animations";
 
 @Component({
     selector: 'todos',
     templateUrl: './todos.component.html',
     styleUrls: ['./todos.component.css'],
-    animations: [
-        trigger('fade', [
-            state('void', style({ opacity: 0 })),
-            transition(':enter, :leave', [ // or transition('void <=> *', [
-                animate(1000)
-            ])
-        ])
-    ]
+    animations: [fade]
 })
 export class TodosComponent implements OnInit {
     items: any[] = [
