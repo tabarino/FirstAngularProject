@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {fade} from "../animations";
+import {fade, slide} from "../animations";
 
 @Component({
     selector: 'todos',
     templateUrl: './todos.component.html',
     styleUrls: ['./todos.component.css'],
-    animations: [fade]
+    animations: [slide]
 })
 export class TodosComponent implements OnInit {
     items: any[] = [
