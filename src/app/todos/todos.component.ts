@@ -1,9 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
     selector: 'todos',
     templateUrl: './todos.component.html',
-    styleUrls: ['./todos.component.css']
+    styleUrls: ['./todos.component.css'],
+    animations: [
+        trigger('fade', [
+            transition('void => *', [
+                style({ opacity: 0 }),
+                animate(2000)
+            ])
+        ])
+    ]
 })
 export class TodosComponent implements OnInit {
     items: any[] = [
@@ -12,7 +21,8 @@ export class TodosComponent implements OnInit {
         'Apply for a car insurance'
     ];
 
-    constructor() { }
+    constructor() {
+    }
 
     ngOnInit(): void {
     }
