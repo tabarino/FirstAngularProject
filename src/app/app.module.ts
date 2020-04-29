@@ -8,7 +8,6 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-
 import {AppComponent} from './app.component';
 import {CoursesComponent} from './courses.component';
 import {CourseComponent} from './course/course.component';
@@ -46,6 +45,8 @@ import {AdminAuthGuardService as AdminAuthGuard} from './services/admin-auth-gua
 import {environment} from 'src/environments/environment';
 import {TodosComponent} from './todos/todos.component';
 import {ZippyAnimationsComponent} from './zippy-animations/zippy-animations.component';
+import {MaterialCheckboxComponent} from './material-checkbox/material-checkbox.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -80,7 +81,8 @@ export function tokenGetter() {
         AdminComponent,
         NoAccessComponent,
         TodosComponent,
-        ZippyAnimationsComponent
+        ZippyAnimationsComponent,
+        MaterialCheckboxComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
@@ -91,6 +93,7 @@ export function tokenGetter() {
         ReactiveFormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        MatCheckboxModule,
         RouterModule.forRoot([
             {path: '', component: HomeComponent},
             {path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard]},
