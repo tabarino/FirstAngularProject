@@ -1,0 +1,9 @@
+<h4>Basic mat-select</h4>
+<mat-form-field>
+    <mat-label>Colors</mat-label>
+    <mat-select [(ngModel)]="defaultColor">
+        <mat-option *ngFor="let color of colors" [value]="color.id">
+            {{color.name}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

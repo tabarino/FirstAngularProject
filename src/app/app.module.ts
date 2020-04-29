@@ -49,6 +49,8 @@ import {MaterialCheckboxComponent} from './material-checkbox/material-checkbox.c
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MaterialRadioButtonComponent} from './material-radio-button/material-radio-button.component';
 import {MatRadioModule} from "@angular/material/radio";
+import {MaterialSelectComponent} from './material-select/material-select.component';
+import {MatSelectModule} from "@angular/material/select";
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -85,7 +87,8 @@ export function tokenGetter() {
         TodosComponent,
         ZippyAnimationsComponent,
         MaterialCheckboxComponent,
-        MaterialRadioButtonComponent
+        MaterialRadioButtonComponent,
+        MaterialSelectComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
@@ -98,6 +101,7 @@ export function tokenGetter() {
         BrowserAnimationsModule,
         MatCheckboxModule,
         MatRadioModule,
+        MatSelectModule,
         RouterModule.forRoot([
             {path: '', component: HomeComponent},
             {path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard]},
