@@ -65,6 +65,8 @@ import { MaterialChipsComponent } from './material-chips/material-chips.componen
 import { MatChipsModule } from "@angular/material/chips";
 import { MaterialProgressSpinnerComponent } from './material-progress-spinner/material-progress-spinner.component';
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MaterialTooltipComponent } from './material-tooltip/material-tooltip.component';
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -108,7 +110,8 @@ export function tokenGetter() {
         MaterialIconComponent,
         MaterialButtonComponent,
         MaterialChipsComponent,
-        MaterialProgressSpinnerComponent
+        MaterialProgressSpinnerComponent,
+        MaterialTooltipComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
@@ -130,6 +133,7 @@ export function tokenGetter() {
         MatDividerModule,
         MatChipsModule,
         MatProgressSpinnerModule,
+        MatTooltipModule,
         RouterModule.forRoot([
             { path: '', component: HomeComponent },
             { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
