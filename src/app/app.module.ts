@@ -61,6 +61,8 @@ import { MaterialIconComponent } from './material-icon/material-icon.component';
 import { MaterialButtonComponent } from './material-button/material-button.component';
 import { MatButtonModule } from "@angular/material/button";
 import { MatDividerModule } from "@angular/material/divider";
+import { MaterialChipsComponent } from './material-chips/material-chips.component';
+import { MatChipsModule } from "@angular/material/chips";
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -102,7 +104,8 @@ export function tokenGetter() {
         MaterialInputComponent,
         MaterialDatepickerComponent,
         MaterialIconComponent,
-        MaterialButtonComponent
+        MaterialButtonComponent,
+        MaterialChipsComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
@@ -122,6 +125,7 @@ export function tokenGetter() {
         MatIconModule,
         MatButtonModule,
         MatDividerModule,
+        MatChipsModule,
         RouterModule.forRoot([
             { path: '', component: HomeComponent },
             { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
