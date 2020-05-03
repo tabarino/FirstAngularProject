@@ -69,6 +69,9 @@ import { MaterialTooltipComponent } from './material-tooltip/material-tooltip.co
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MaterialTabsComponent } from './material-tabs/material-tabs.component';
 import { MatTabsModule } from "@angular/material/tabs";
+import { MaterialDialogsComponent } from './material-dialogs/material-dialogs.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import { EditCourseComponent } from './edit-course/edit-course.component';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -114,7 +117,9 @@ export function tokenGetter() {
         MaterialChipsComponent,
         MaterialProgressSpinnerComponent,
         MaterialTooltipComponent,
-        MaterialTabsComponent
+        MaterialTabsComponent,
+        MaterialDialogsComponent,
+        EditCourseComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
@@ -138,6 +143,7 @@ export function tokenGetter() {
         MatProgressSpinnerModule,
         MatTooltipModule,
         MatTabsModule,
+        MatDialogModule,
         RouterModule.forRoot([
             { path: '', component: HomeComponent },
             { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
