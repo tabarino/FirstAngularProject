@@ -56,6 +56,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MaterialDatepickerComponent } from './material-datepicker/material-datepicker.component';
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import { MatIconModule } from "@angular/material/icon";
+import { MaterialIconComponent } from './material-icon/material-icon.component';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -95,7 +97,8 @@ export function tokenGetter() {
         MaterialRadioButtonComponent,
         MaterialSelectComponent,
         MaterialInputComponent,
-        MaterialDatepickerComponent
+        MaterialDatepickerComponent,
+        MaterialIconComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
@@ -112,6 +115,7 @@ export function tokenGetter() {
         MatInputModule,
         MatDatepickerModule,
         MatNativeDateModule,
+        MatIconModule,
         RouterModule.forRoot([
             { path: '', component: HomeComponent },
             { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
