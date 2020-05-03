@@ -16,7 +16,11 @@ export class MaterialDialogsComponent implements OnInit {
     }
 
     openDialog() {
-        this.dialog.open(EditCourseComponent).afterClosed().subscribe(
+        this.dialog.open(EditCourseComponent, {
+            data: {
+                courseId: 1
+            }
+        }).afterClosed().subscribe(
             result => console.log(result)
         );
     }
