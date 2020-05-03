@@ -53,6 +53,9 @@ import { MaterialSelectComponent } from './material-select/material-select.compo
 import { MatSelectModule } from "@angular/material/select";
 import { MaterialInputComponent } from './material-input/material-input.component';
 import { MatInputModule } from "@angular/material/input";
+import { MaterialDatepickerComponent } from './material-datepicker/material-datepicker.component';
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -91,7 +94,8 @@ export function tokenGetter() {
         MaterialCheckboxComponent,
         MaterialRadioButtonComponent,
         MaterialSelectComponent,
-        MaterialInputComponent
+        MaterialInputComponent,
+        MaterialDatepickerComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
@@ -106,6 +110,8 @@ export function tokenGetter() {
         MatRadioModule,
         MatSelectModule,
         MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
         RouterModule.forRoot([
             { path: '', component: HomeComponent },
             { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
