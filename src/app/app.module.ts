@@ -58,6 +58,9 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatIconModule } from "@angular/material/icon";
 import { MaterialIconComponent } from './material-icon/material-icon.component';
+import { MaterialButtonComponent } from './material-button/material-button.component';
+import { MatButtonModule } from "@angular/material/button";
+import { MatDividerModule } from "@angular/material/divider";
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -98,7 +101,8 @@ export function tokenGetter() {
         MaterialSelectComponent,
         MaterialInputComponent,
         MaterialDatepickerComponent,
-        MaterialIconComponent
+        MaterialIconComponent,
+        MaterialButtonComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
@@ -116,6 +120,8 @@ export function tokenGetter() {
         MatDatepickerModule,
         MatNativeDateModule,
         MatIconModule,
+        MatButtonModule,
+        MatDividerModule,
         RouterModule.forRoot([
             { path: '', component: HomeComponent },
             { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
@@ -134,7 +140,8 @@ export function tokenGetter() {
                 whitelistedDomains: ['example.com'],
                 blacklistedRoutes: ['example.com/examplebadroute/']
             }
-        })
+        }),
+        MatDividerModule
     ],
     providers: [
         AuthService,
