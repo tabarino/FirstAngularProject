@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'material-select',
@@ -7,9 +7,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MaterialSelectComponent implements OnInit {
     colors = [
-        {id: 1, name: 'Red'},
-        {id: 2, name: 'Blue'},
-        {id: 3, name: 'Yellow'}
+        { id: 1, name: 'Red' },
+        { id: 2, name: 'Blue' },
+        { id: 3, name: 'Yellow' }
     ];
     defaultColor: number;
 

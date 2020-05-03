@@ -1,0 +1,14 @@
+<form>
+    <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input type="text" matInput
+               [formControl]="emailFormControl"
+               [errorStateMatcher]="matcher" placeholder="Type a unique username" required>
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            Username is <strong>required</strong>
+        </mat-error>
+        <span matPrefix>admin.&nbsp;</span>
+        <span matSuffix>@domain.com</span>
+    </mat-form-field>
+</form>
