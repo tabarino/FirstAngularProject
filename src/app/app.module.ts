@@ -46,32 +46,20 @@ import { environment } from 'src/environments/environment';
 import { TodosComponent } from './todos/todos.component';
 import { ZippyAnimationsComponent } from './zippy-animations/zippy-animations.component';
 import { MaterialCheckboxComponent } from './material-checkbox/material-checkbox.component';
-import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MaterialRadioButtonComponent } from './material-radio-button/material-radio-button.component';
-import { MatRadioModule } from "@angular/material/radio";
 import { MaterialSelectComponent } from './material-select/material-select.component';
-import { MatSelectModule } from "@angular/material/select";
 import { MaterialInputComponent } from './material-input/material-input.component';
-import { MatInputModule } from "@angular/material/input";
 import { MaterialDatepickerComponent } from './material-datepicker/material-datepicker.component';
-import { MatDatepickerModule } from "@angular/material/datepicker";
-import { MatNativeDateModule } from "@angular/material/core";
-import { MatIconModule } from "@angular/material/icon";
 import { MaterialIconComponent } from './material-icon/material-icon.component';
 import { MaterialButtonComponent } from './material-button/material-button.component';
-import { MatButtonModule } from "@angular/material/button";
 import { MatDividerModule } from "@angular/material/divider";
 import { MaterialChipsComponent } from './material-chips/material-chips.component';
-import { MatChipsModule } from "@angular/material/chips";
 import { MaterialProgressSpinnerComponent } from './material-progress-spinner/material-progress-spinner.component';
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MaterialTooltipComponent } from './material-tooltip/material-tooltip.component';
-import { MatTooltipModule } from "@angular/material/tooltip";
 import { MaterialTabsComponent } from './material-tabs/material-tabs.component';
-import { MatTabsModule } from "@angular/material/tabs";
 import { MaterialDialogsComponent } from './material-dialogs/material-dialogs.component';
-import { MatDialogModule } from "@angular/material/dialog";
 import { EditCourseComponent } from './edit-course/edit-course.component';
+import { MatComponentsModule } from "./mat-components.module";
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -130,20 +118,7 @@ export function tokenGetter() {
         ReactiveFormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        MatCheckboxModule,
-        MatRadioModule,
-        MatSelectModule,
-        MatInputModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatIconModule,
-        MatButtonModule,
-        MatDividerModule,
-        MatChipsModule,
-        MatProgressSpinnerModule,
-        MatTooltipModule,
-        MatTabsModule,
-        MatDialogModule,
+        MatComponentsModule,
         RouterModule.forRoot([
             { path: '', component: HomeComponent },
             { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
