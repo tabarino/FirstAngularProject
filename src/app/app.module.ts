@@ -62,7 +62,8 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
 import { MatComponentsModule } from "./mat-components.module";
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { metaReducers, reducers } from './reducers';
+import { ReduxDemoComponent } from './redux-demo/redux-demo.component';
+import { counterReducer } from './redux-demo/reducers/counter.reducers';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -110,7 +111,8 @@ export function tokenGetter() {
         MaterialTooltipComponent,
         MaterialTabsComponent,
         MaterialDialogsComponent,
-        EditCourseComponent
+        EditCourseComponent,
+        ReduxDemoComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
@@ -142,7 +144,7 @@ export function tokenGetter() {
             }
         }),
         MatDividerModule,
-        StoreModule.forRoot(reducers, { metaReducers }),
+        StoreModule.forRoot({ counterReducer }),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
     ],
     providers: [
