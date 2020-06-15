@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "~9.1.11",
     "@angular/router": "~9.1.11",
     "@auth0/angular-jwt": "^4.0.0",
+    "@ngrx/store": "^9.2.0",
+    "@ngrx/store-devtools": "^9.2.0",
     "@popperjs/core": "^2.0.5",
     "bootstrap": "^4.4.1",
     "firebase": "^7.14.0",

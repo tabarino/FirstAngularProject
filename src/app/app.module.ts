@@ -60,6 +60,9 @@ import { MaterialTabsComponent } from './material-tabs/material-tabs.component';
 import { MaterialDialogsComponent } from './material-dialogs/material-dialogs.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
 import { MatComponentsModule } from "./mat-components.module";
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { metaReducers, reducers } from './reducers';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -138,7 +141,9 @@ export function tokenGetter() {
                 blacklistedRoutes: ['example.com/examplebadroute/']
             }
         }),
-        MatDividerModule
+        MatDividerModule,
+        StoreModule.forRoot(reducers, { metaReducers }),
+        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
     ],
     providers: [
         AuthService,
