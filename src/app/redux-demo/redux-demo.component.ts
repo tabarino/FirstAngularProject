@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { increment } from './actions/counter.actions';
 import { ICounterState } from './reducers/counter.reducers';
+import { Observable } from 'rxjs';
+import { selectCounter } from './selectors/counter.selectors';
 
 @Component({
     selector: 'redux-demo',
@@ -10,9 +12,10 @@ import { ICounterState } from './reducers/counter.reducers';
 })
 export class ReduxDemoComponent implements OnInit {
     title = 'Redux Demo';
-    counter = 0;
+    counter$: Observable<number>;
 
     constructor(private store: Store<ICounterState>) {
+        this.counter$ = store.pipe(select(selectCounter));
     }
 
     ngOnInit(): void {
